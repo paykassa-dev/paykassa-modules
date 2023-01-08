@@ -1,0 +1,364 @@
+<?php
+
+class PaykassaAPI
+{
+    private $version = "0.5";
+
+    private $system_settings = [
+        "bitcoin" => [
+            "type" => "crypto",
+            "system_id" => 11,
+            "system" => "BitCoin",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "bitcoin:",
+            "currency_list" => [
+                "BTC",
+            ],
+        ],
+        "ethereum" => [
+            "type" => "crypto",
+            "system_id" => 12,
+            "system" => "Ethereum",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "ethereum:",
+            "currency_list" => [
+                "ETH",
+            ],
+        ],
+        "litecoin" => [
+            "type" => "crypto",
+            "system_id" => 14,
+            "system" => "LiteCoin",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "litecoin:",
+            "currency_list" => [
+                "LTC",
+            ],
+        ],
+        "dogecoin" => [
+            "type" => "crypto",
+            "system_id" => 15,
+            "system" => "DogeCoin",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "dogecoin:",
+            "currency_list" => [
+                "DOGE",
+            ],
+        ],
+        "dash" => [
+            "type" => "crypto",
+            "system_id" => 16,
+            "system" => "Dash",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "dash:",
+            "currency_list" => [
+                "DASH",
+            ],
+        ],
+        "bitcoincash" => [
+            "type" => "crypto",
+            "system_id" => 18,
+            "system" => "BitcoinCash",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "",
+            "currency_list" => [
+                "BCH",
+            ],
+        ],
+        "zcash" => [
+            "type" => "crypto",
+            "system_id" => 19,
+            "system" => "Zcash",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "zcash:",
+            "currency_list" => [
+                "ZEC",
+            ],
+        ],
+        "ethereumclassic" => [
+            "type" => "crypto",
+            "system_id" => 21,
+            "system" => "EthereumClassic",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "ethereumclassic:",
+            "currency_list" => [
+                "ETC",
+            ],
+        ],
+        "ripple" => [
+            "type" => "crypto",
+            "system_id" => 22,
+            "system" => "Ripple",
+            "tag" => true,
+            "tag_title" => "tag",
+            "qr_prefix" => "",
+            "currency_list" => [
+                "XRP",
+            ],
+        ],
+        "tron" => [
+            "type" => "crypto",
+            "system_id" => 27,
+            "system" => "TRON",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "",
+            "currency_list" => [
+                "TRX",
+            ],
+        ],
+        "stellar" => [
+            "type" => "crypto",
+            "system_id" => 28,
+            "system" => "Stellar",
+            "tag" => true,
+            "tag_title" => "memo",
+            "qr_prefix" => "",
+            "currency_list" => [
+                "XLM",
+            ],
+        ],
+        "binancecoin" => [
+            "type" => "crypto",
+            "system_id" => 29,
+            "system" => "BinanceCoin",
+            "tag" => false,
+            "qr_prefix" => "",
+            "currency_list" => [
+                "BNB",
+            ],
+        ],
+        "tron_trc20" => [
+            "type" => "crypto",
+            "system_id" => 30,
+            "system" => "TRON_TRC20",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "",
+            "currency_list" => [
+                "USDT",
+            ],
+        ],
+        "binancesmartchain_bep20" => [
+            "type" => "crypto",
+            "system_id" => 31,
+            "system" => "BinanceSmartChain_BEP20",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "",
+            "currency_list" => [
+                "USDT", "BUSD", "USDC", "ADA", "EOS", "BTC", "ETH", "DOGE", "SHIB",
+            ],
+        ],
+        "ethereum_erc20" => [
+            "type" => "crypto",
+            "system_id" => 32,
+            "system" => "Ethereum_ERC20",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "ethereum:",
+            "currency_list" => [
+                "USDT", "BUSD", "USDC", "SHIB",
+            ],
+        ],
+        "berty" => [
+            "type" => "emoney",
+            "system_id" => 7,
+            "system" => "Berty",
+            "tag" => false,
+            "tag_title" => "",
+            "qr_prefix" => "",
+            "currency_list" => [
+                "USD", "RUB",
+            ],
+        ],
+    ];
+
+
+    public function
+    __construct(
+        string $api_id,
+        string $api_password,
+        bool   $test = false
+    )
+    {
+        $this->params = [];
+        $this->params["api_id"] = $api_id;
+        $this->params["api_key"] = $api_password;
+        $this->params["test"] = $test;
+        $this->params["domain"] = "";
+
+        $this->url = "https://paykassa.app/api/" . $this->version . "/index.php";
+
+        $this->curl = curl_init();
+        curl_setopt($this->curl, CURLOPT_FAILONERROR, true);
+        curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
+
+        if (!defined('CURL_HTTP_VERSION_2_0')) {
+            define('CURL_HTTP_VERSION_2_0', 3);
+        }
+
+        curl_setopt($this->curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
+
+        curl_setopt($this->curl, CURLOPT_HTTPHEADER, [
+            'Content-type: application/x-www-form-urlencoded',
+        ]);
+    }
+
+
+    final private function
+    ok(
+        string $message,
+        array  $data = []
+    ): array
+    {
+        return [
+            'error' => false,
+            'message' => $message,
+            'data' => $data,
+        ];
+    }
+
+    final private function
+    err(
+        string $message,
+        array  $data = []
+    ): array
+    {
+        return [
+            'error' => true,
+            'message' => $message,
+            'data' => $data,
+        ];
+    }
+
+    private function
+    request_post(
+        string $url,
+        array  $data = []
+    ): array
+    {
+        curl_setopt($this->curl, CURLOPT_URL, $url);
+        curl_setopt($this->curl, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($this->curl, CURLOPT_POST, 1);
+
+        $res = curl_exec($this->curl);
+        if (false === $res) {
+            return $this->err(
+                curl_error($this->curl)
+            );
+        }
+        $data = json_decode($res, true);
+        if (null === $data || false === $data) {
+            return $this->err(
+                'Json parse error: ' . json_last_error_msg()
+            );
+        }
+
+        if (!isset($data['error'], $data['message'])) {
+            return $this->err('Bad format response');
+        }
+
+        return $data;
+    }
+
+    private function
+    query(
+        string $url,
+        array  $data = []
+    ): array
+    {
+        return $this->request_post($url, $data + $this->params);
+    }
+
+    final public function
+    get_system_settings_by_system_name(
+        string $system_name
+    ): array
+    {
+        $system_name = strtolower($system_name);
+        if (isset($this->system_settings[$system_name])) {
+            return $this->ok("Ok", $this->system_settings[$system_name]);
+        }
+        return $this->err(
+            sprintf(
+                "System is not found. You can use next systems: %s",
+                implode(
+                    ", ",
+                    array_map(
+                        function (array $item): string {
+                            return sprintf("%s: [ %s ]",
+                                $item["system"],
+                                implode(", ", $item["currency_list"])
+                            );
+                        },
+                        $this->system_settings
+                    )
+                )
+            )
+        );
+    }
+
+    final public function
+    send_money(
+        string $merchant_id,
+        array  $wallet,
+        string $amount,
+        string $system_name,
+        string $currency,
+        string $comment = "",
+        string $priority = "medium"
+    ): array
+    {
+
+        $res = $this->get_system_settings_by_system_name($system_name);
+        if ($res["error"]) {
+            return $res;
+        }
+
+        $system_settings = $res["data"];
+
+        if (false === in_array($currency, $system_settings["currency_list"], true)) {
+            return $this->err(
+                sprintf(
+                    "Currency(%s) is not found. You can use next currencies: %s",
+                    $currency,
+                    implode(", ", $system_settings["currency_list"])
+                )
+            );
+        }
+
+        return $this->query($this->url, [
+                "func" => "api_payment",
+            ] + [
+                "shop" => $merchant_id,
+                "number" => $wallet["address"] ?? "",
+                "tag" => $wallet["tag"] ?? "",
+                "amount" => $amount,
+                "system" => $system_settings["system_id"],
+                "currency" => $currency,
+                "comment" => $comment,
+                "priority" => $priority,
+            ]);
+    }
+
+    final public function
+    get_merchant_balances(
+        string $merchant_id
+    ): array
+    {
+        return $this->query($this->url, [
+                "func" => "api_get_shop_balance",
+            ] + [
+                "shop" => $merchant_id,]);
+    }
+
+}
