@@ -175,8 +175,8 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
         $txid = $res["data"]["txid"];                       // A transaction in a cryptocurrency network, an example: 0xb97189db3555015c46f2805a43ed3d700a706b42fb9b00506fbe6d086416b602
         $shop_id = $res["data"]["shop_id"];                 // Your merchant's number, example: 138
         $id = $res["data"]["order_id"];                     // unique numeric identifier of the payment in your system, example: 150800
-        $amount = (float)$res["data"]["amount"];            // received amount, example: 1.0000000
-        $fee = (float)$res["data"]["fee"];                  // Payment processing commission: 0.0000000
+        $amount = $res["data"]["amount"];            // received amount, example: 1.0000000
+        $fee = $res["data"]["fee"];                  // Payment processing commission: 0.0000000
         $currency = $res["data"]["currency"];               // the currency of payment, for example: DASH
         $system = $res["data"]["system"];                   // system, example: Dash
         $address_from = $res["data"]["address_from"];       // address of the payer's cryptocurrency wallet, example: 0x5d9fe07813a260857cf60639dac710ebb9531a20
