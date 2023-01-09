@@ -60,7 +60,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     );
 
 
-    $res = $paykassa->sci_create_address(
+    $res = $paykassa->create_address(
         $params["system"],
         $params["currency"],
         $params["order_id"],
@@ -163,7 +163,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
     $private_hash = $_POST["private_hash"];
 
-    $res = $paykassa->sci_check_transaction_ipn(
+    $res = $paykassa->check_transaction_ipn(
         $private_hash
     );
 
@@ -263,7 +263,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     );
 
 
-    $res = $paykassa->sci_create_order(
+    $res = $paykassa->create_order(
         $params["amount"],
         $params["system"],
         $params["currency"],
@@ -333,7 +333,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
     $private_hash = $_POST["private_hash"];
 
-    $res = $paykassa->sci_check_order_ipn(
+    $res = $paykassa->check_order_ipn(
         $private_hash
     );
 

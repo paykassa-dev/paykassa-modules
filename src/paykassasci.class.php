@@ -377,7 +377,7 @@ class PaykassaSCI
     }
 
     final public function
-    sci_create_order(
+    create_order(
         string $amount,
         string $system_name,
         string $currency,
@@ -416,7 +416,7 @@ class PaykassaSCI
 
 
     final public function
-    sci_create_address(
+    create_address(
         string $system_name,
         string $currency,
         string $order_id,
@@ -457,7 +457,7 @@ class PaykassaSCI
     }
 
     final public function
-    sci_check_order_ipn(
+    check_order_ipn(
         string $private_hash
     ): array
     {
@@ -468,7 +468,7 @@ class PaykassaSCI
     }
 
     final public function
-    sci_check_transaction_ipn(
+    check_transaction_ipn(
         string $private_hash
     ): array
     {
