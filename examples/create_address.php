@@ -45,7 +45,7 @@
     );
 
 
-    $res = $paykassa->sci_create_address(
+    $res = $paykassa->create_address(
         $params["system"],
         $params["currency"],
         $params["order_id"],
