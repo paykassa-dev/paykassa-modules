@@ -52,8 +52,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
         "order_id" => "My order id "  . microtime(true),
         "comment" => "My comment",
     ];
-
-
+    
     $paykassa = new PaykassaSCI(
         $secret_keys_and_config["merchant_id"],
         $secret_keys_and_config["merchant_password"],
@@ -90,14 +89,16 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
             if (null === $params["amount"]) {
                 echo sprintf(
-                    "Send a money to %s.",
-                    htmlspecialchars($display, ENT_QUOTES, "UTF-8")
+                    "Send a money to the %s %s.",
+                    $system,
+                    htmlspecialchars($display,ENT_QUOTES, "UTF-8")
                 );
             } else {
                 echo sprintf(
-                    "Send %s %s to %s.",
+                    "Send %s %s to the %s %s.",
                     $params["amount"],
                     $currency,
+                    $system,
                     htmlspecialchars($display, ENT_QUOTES, "UTF-8")
                 );
             }

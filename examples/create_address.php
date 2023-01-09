@@ -38,7 +38,6 @@
         "comment" => "My comment",
     ];
 
-
     $paykassa = new PaykassaSCI(
         $secret_keys_and_config["merchant_id"],
         $secret_keys_and_config["merchant_password"],
@@ -75,14 +74,16 @@
 
             if (null === $params["amount"]) {
                 echo sprintf(
-                    "Send a money to %s.",
+                    "Send a money to the %s %s.",
+                    $system,
                     htmlspecialchars($display,ENT_QUOTES, "UTF-8")
                 );
             } else {
                 echo sprintf(
-                    "Send %s %s to %s.",
+                    "Send %s %s to the %s %s.",
                     $params["amount"],
                     $currency,
+                    $system,
                     htmlspecialchars($display, ENT_QUOTES, "UTF-8")
                 );
             }
