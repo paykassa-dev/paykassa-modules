@@ -1,6 +1,6 @@
 <?php
 
-    require_once __DIR__ . "/../src/paykassaapi.class.php";
+    require_once __DIR__ . "/../src/PaykassaAPI.php";
 
 
     $secret_keys_and_config = [

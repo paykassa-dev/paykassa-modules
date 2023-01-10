@@ -15,7 +15,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```injectablephp
 <?php
 
-    require_once __DIR__ . "/../src/paykassasci.class.php";
+    require_once __DIR__ . "/../src/PaykassaSCI.php";
 
 
     $secret_keys_and_config = [
@@ -134,7 +134,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
 
-    require_once __DIR__ . "/../src/paykassasci.class.php";
+    require_once __DIR__ . "/../src/PaykassaSCI.php";
 
 
     $secret_keys_and_config = [
@@ -242,7 +242,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
 
-    require_once __DIR__ . "/../src/paykassasci.class.php";
+    require_once __DIR__ . "/../src/PaykassaSCI.php";
 
 
     $secret_keys_and_config = [
@@ -335,7 +335,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
 
-    require_once __DIR__ . "/../src/paykassasci.class.php";
+    require_once __DIR__ . "/../src/PaykassaSCI.php";
 
 
     $secret_keys_and_config = [
@@ -411,7 +411,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
 
-    require_once __DIR__ . "/../src/paykassasci.class.php";
+    require_once __DIR__ . "/../src/PaykassaSCI.php";
 
 
     $secret_keys_and_config = [
@@ -486,7 +486,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
 
-    require_once __DIR__ . "/../src/paykassaapi.class.php";
+    require_once __DIR__ . "/../src/PaykassaAPI.php";
 
 
     $secret_keys_and_config = [
@@ -593,7 +593,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
 
-    require_once __DIR__ . "/../src/paykassaapi.class.php";
+    require_once __DIR__ . "/../src/PaykassaAPI.php";
 
 
     $secret_keys_and_config = [
