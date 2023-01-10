@@ -4,7 +4,7 @@ class PaykassaAPI
 {
     private $version = "0.5";
 
-    private $system_settings = [
+    private static $system_settings = [
         "bitcoin" => [
             "type" => "crypto",
             "system_id" => 11,
@@ -12,6 +12,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "bitcoin:",
+            "display_name" => "Bitcoin",
             "currency_list" => [
                 "BTC",
             ],
@@ -23,6 +24,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "ethereum:",
+            "display_name" => "Ethereum",
             "currency_list" => [
                 "ETH",
             ],
@@ -34,6 +36,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "litecoin:",
+            "display_name" => "Litecoin",
             "currency_list" => [
                 "LTC",
             ],
@@ -45,6 +48,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "dogecoin:",
+            "display_name" => "Dogecoin",
             "currency_list" => [
                 "DOGE",
             ],
@@ -56,6 +60,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "dash:",
+            "display_name" => "Dash",
             "currency_list" => [
                 "DASH",
             ],
@@ -67,6 +72,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "",
+            "display_name" => "Bitcoin Cash",
             "currency_list" => [
                 "BCH",
             ],
@@ -78,6 +84,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "zcash:",
+            "display_name" => "Zcash",
             "currency_list" => [
                 "ZEC",
             ],
@@ -89,6 +96,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "ethereumclassic:",
+            "display_name" => "Ethereum Classic",
             "currency_list" => [
                 "ETC",
             ],
@@ -100,6 +108,7 @@ class PaykassaAPI
             "tag" => true,
             "tag_title" => "tag",
             "qr_prefix" => "",
+            "display_name" => "XRP",
             "currency_list" => [
                 "XRP",
             ],
@@ -111,6 +120,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "",
+            "display_name" => "TRON",
             "currency_list" => [
                 "TRX",
             ],
@@ -122,6 +132,7 @@ class PaykassaAPI
             "tag" => true,
             "tag_title" => "memo",
             "qr_prefix" => "",
+            "display_name" => "Stellar",
             "currency_list" => [
                 "XLM",
             ],
@@ -132,6 +143,7 @@ class PaykassaAPI
             "system" => "BinanceCoin",
             "tag" => false,
             "qr_prefix" => "",
+            "display_name" => "BNB",
             "currency_list" => [
                 "BNB",
             ],
@@ -143,6 +155,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "",
+            "display_name" => "TRON(TRC20)",
             "currency_list" => [
                 "USDT",
             ],
@@ -154,6 +167,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "",
+            "display_name" => "BNB Smart Chain(BEP20)",
             "currency_list" => [
                 "USDT", "BUSD", "USDC", "ADA", "EOS", "BTC", "ETH", "DOGE", "SHIB",
             ],
@@ -165,6 +179,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "ethereum:",
+            "display_name" => "Ethereum(ERC20)",
             "currency_list" => [
                 "USDT", "BUSD", "USDC", "SHIB",
             ],
@@ -176,6 +191,7 @@ class PaykassaAPI
             "tag" => false,
             "tag_title" => "",
             "qr_prefix" => "",
+            "display_name" => "BertyCash",
             "currency_list" => [
                 "USD", "RUB",
             ],
@@ -285,8 +301,8 @@ class PaykassaAPI
     ): array
     {
         $system_name = strtolower($system_name);
-        if (isset($this->system_settings[$system_name])) {
-            return $this->ok("Ok", $this->system_settings[$system_name]);
+        if (isset(self::$system_settings[$system_name])) {
+            return $this->ok("Ok", self::$system_settings[$system_name]);
         }
         return $this->err(
             sprintf(
@@ -300,7 +316,7 @@ class PaykassaAPI
                                 implode(", ", $item["currency_list"])
                             );
                         },
-                        $this->system_settings
+                        self::$system_settings
                     )
                 )
             )
@@ -318,6 +334,8 @@ class PaykassaAPI
         string $priority = "medium"
     ): array
     {
+
+        $currency = strtoupper($currency);
 
         $res = $this->get_system_settings_by_system_name($system_name);
         if ($res["error"]) {
@@ -361,4 +379,13 @@ class PaykassaAPI
                 "shop" => $merchant_id,]);
     }
 
+    final public static function
+    get_payment_systems(string $type=null): array {
+        if (null === $type) {
+            return self::$system_settings;
+        }
+        return array_filter(self::$system_settings, function ($item) use ($type) {
+            return ($item["type"] === $type);
+        });
+    }
 }
