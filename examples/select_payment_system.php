@@ -19,7 +19,7 @@
 
 
     //$list = PaykassaSCI::get_payment_systems();
-    $list = \Paykassa\PaykassaAPI::get_payment_systems();
+    $list = \Paykassa\PaykassaAPI::getPaymentSystems();
 
     ?>
 

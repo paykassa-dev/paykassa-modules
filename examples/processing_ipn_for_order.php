@@ -44,7 +44,7 @@
 
     $private_hash = $_POST["private_hash"];
 
-    $res = $paykassa->check_order_ipn(
+    $res = $paykassa->checkOrderIpn(
         $private_hash
     );
 

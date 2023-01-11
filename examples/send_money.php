@@ -55,7 +55,7 @@
     );
 
 
-    $res = $paykassa->send_money(
+    $res = $paykassa->sendMoney(
         $params["merchant_id"],
         $params["wallet"],
         $params["amount"],

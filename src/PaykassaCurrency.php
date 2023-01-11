@@ -83,14 +83,14 @@ class PaykassaCurrency
         return $data;
     }
 
-    public static function get_currency_pairs(array $pairs = []): array
+    public static function getCurrencyPairs(array $pairs = []): array
     {
         return self::request("pairs.php", "POST", [
             "pairs" => $pairs,
         ]);
     }
 
-    public static function get_available_currencies(): array
+    public static function getAvailableCurrencies(): array
     {
         return self::request("currency.php");
     }
