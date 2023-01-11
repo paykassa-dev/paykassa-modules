@@ -1,5 +1,6 @@
 <?php
 
+namespace Paykassa;
 class PaykassaAPI
 {
     private $version = "0.5";

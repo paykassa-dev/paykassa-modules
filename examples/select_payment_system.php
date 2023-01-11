@@ -2,6 +2,7 @@
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
     require_once __DIR__ . "/../src/PaykassaAPI.php";
+    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -18,14 +19,14 @@
 
 
     //$list = PaykassaSCI::get_payment_systems();
-    $list = PaykassaAPI::get_payment_systems();
+    $list = \Paykassa\PaykassaAPI::get_payment_systems();
 
     ?>
 
 
     <form action="" method="POST">
-        <label>Select payment direction</label>
-        <select name="pscur">
+        <label for="pscur">Select payment direction</label>
+        <select id="pscur" name="pscur">
             <option value="">---</option>
             <?php foreach ($list as $item) { ?>
                 <?php foreach ($item["currency_list"] as $currency) { ?>

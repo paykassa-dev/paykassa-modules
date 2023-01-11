@@ -1,5 +1,6 @@
 <?php
 
+namespace Paykassa;
 class PaykassaSCI
 {
     private $version = "0.4";

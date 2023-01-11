@@ -1,7 +1,8 @@
 <?php
     require_once __DIR__ . "/../src/PaykassaCurrency.php";
+    //require_once __DIR__ . "/../vendor/autoload.php";
 
-    $res = PaykassaCurrency::get_available_currencies();
+    $res = \Paykassa\PaykassaCurrency::get_available_currencies();
 
     if ($res["error"]) {
         die($res["message"]);

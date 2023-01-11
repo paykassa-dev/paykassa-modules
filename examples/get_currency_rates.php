@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__ . "/../src/PaykassaCurrency.php";
+    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $pairs = [
@@ -9,7 +10,7 @@
     ];
 
 
-    $res = PaykassaCurrency::get_currency_pairs($pairs);
+    $res = \Paykassa\PaykassaCurrency::get_currency_pairs($pairs);
 
     if ($res["error"]) {
         die($res["message"]);

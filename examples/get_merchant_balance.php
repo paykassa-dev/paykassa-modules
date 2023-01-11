@@ -1,6 +1,7 @@
 <?php
 
     require_once __DIR__ . "/../src/PaykassaAPI.php";
+    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -18,7 +19,7 @@
     ];
 
 
-    $paykassa = new PaykassaAPI(
+    $paykassa = new \Paykassa\PaykassaAPI(
         $secret_keys_and_config["api_id"],
         $secret_keys_and_config["api_password"],
         $secret_keys_and_config["config"]["test_mode"]
