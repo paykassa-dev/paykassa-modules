@@ -1,5 +1,6 @@
 <?php
 
+namespace Paykassa;
 class PaykassaCurrency
 {
     final private static function
@@ -82,7 +83,7 @@ class PaykassaCurrency
         return $data;
     }
 
-    public static function get_currency_pairs($pairs = []): array
+    public static function get_currency_pairs(array $pairs = []): array
     {
         return self::request("pairs.php", "POST", [
             "pairs" => $pairs,

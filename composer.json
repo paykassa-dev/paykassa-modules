@@ -1,0 +1,17 @@
+{
+  "name": "paykassa-dev/paykassa-modules",
+  "description": "Paykassa.pro PHP SCI/API Wrapper(Official)",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Paykassa Dev",
+      "email": "dev@paykassa.pro"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Paykassa\\": "src/"
+    }
+  }
+}

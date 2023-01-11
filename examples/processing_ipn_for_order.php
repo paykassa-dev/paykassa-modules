@@ -1,6 +1,7 @@
 <?php
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
+    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -33,7 +34,7 @@
      * Berty: [ USD, RUB ]
      */
 
-    $paykassa = new PaykassaSCI(
+    $paykassa = new \Paykassa\PaykassaSCI(
         $secret_keys_and_config["merchant_id"],
         $secret_keys_and_config["merchant_password"],
         $secret_keys_and_config["config"]["test_mode"]
