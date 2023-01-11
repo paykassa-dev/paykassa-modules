@@ -7,12 +7,12 @@ Source code of the class files is in the ./src directory. The source code for th
 ## Requirements
 It's recommended to use a newer version of PHP. This library was written in a PHP v7.2.34 environment + php-curl modules.
 
-A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Password**. You can get the credentials at the pages: [Add merchants](https://paykassa.pro/en/user/shops/add_shop_new/), [Add APIs](https://paykassa.pro/en/user/api/add_api/).
+A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Password**. You can get the credentials at the pages: [Add merchant](https://paykassa.pro/en/user/shops/add_shop_new/), [Add API](https://paykassa.pro/en/user/api/add_api/).
 
 
 ## Usage
 ### Custom payment page
-```injectablephp
+```php
 <?php
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
@@ -659,6 +659,59 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
                 $data[$label] ?? "0.0",
                 $currency
             );
+    }
+```
+
+
+
+### Get cryptocurrency pair rates
+
+```php
+<?php
+    require_once __DIR__ . "/../src/PaykassaCurrency.php";
+
+
+    $pairs = [
+        "BTC_USD",
+        "USDT_ETH",
+        "XRP_ADA",
+    ];
+
+
+    $res = PaykassaCurrency::get_currency_pairs($pairs);
+
+    if ($res["error"]) {
+        die($res["message"]);
+    } else {
+        $map_pairs = [];
+        array_map(function ($pairs) use (&$map_pairs) {
+            foreach ($pairs as $pair => $value) {
+                $map_pairs[$pair] = $value;
+            }
+        }, $res["data"]);
+
+        foreach ($map_pairs as $pair => $rate) {
+            echo sprintf("Pairs - %s -> %s<br>", $pair, $rate);
+        }
+
+        $my_pair = "BTC_USD";
+        echo sprintf("Request %s -> %s<br>", $my_pair, $map_pairs[$my_pair]);
+    }
+```
+
+
+### Get Available Currencies
+
+```php
+<?php
+    require_once __DIR__ . "/../src/PaykassaCurrency.php";
+    
+    $res = PaykassaCurrency::get_available_currencies();
+
+    if ($res["error"]) {
+        die($res["message"]);
+    } else {
+        print_r($res["data"]);
     }
 ```
 
