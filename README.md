@@ -18,6 +18,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     require_once __DIR__ . "/../src/PaykassaSCI.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
 
+
     $secret_keys_and_config = [
         "merchant_id" => "Merchant ID",
         "merchant_password" => "Merchant Password",
@@ -137,6 +138,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     require_once __DIR__ . "/../src/PaykassaSCI.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
 
+
     $secret_keys_and_config = [
         "merchant_id" => "Merchant ID",
         "merchant_password" => "Merchant Password",
@@ -171,7 +173,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
         "order_id" => "My order id "  . microtime(true),
         "comment" => "My comment",
     ];
-    
+
     $paykassa = new \Paykassa\PaykassaSCI(
         $secret_keys_and_config["merchant_id"],
         $secret_keys_and_config["merchant_password"],
@@ -244,6 +246,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
+
 
     $secret_keys_and_config = [
         "merchant_id" => "Merchant ID",
@@ -338,6 +341,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     require_once __DIR__ . "/../src/PaykassaSCI.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
 
+
     $secret_keys_and_config = [
         "merchant_id" => "Merchant ID",
         "merchant_password" => "Merchant Password",
@@ -414,6 +418,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     require_once __DIR__ . "/../src/PaykassaSCI.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
 
+
     $secret_keys_and_config = [
         "merchant_id" => "Merchant ID",
         "merchant_password" => "Merchant Password",
@@ -488,6 +493,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
     require_once __DIR__ . "/../src/PaykassaAPI.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
+
 
     $secret_keys_and_config = [
         "merchant_id" => "Merchant ID",
@@ -596,6 +602,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     require_once __DIR__ . "/../src/PaykassaAPI.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
 
+
     $secret_keys_and_config = [
         "merchant_id" => "Merchant ID",
         "merchant_password" => "Merchant Password",
@@ -605,7 +612,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
             "test_mode" => false,
         ],
     ];
-    
+
     $params = [
         "merchant_id" => $secret_keys_and_config["merchant_id"],
     ];
@@ -645,7 +652,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
              * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
              * Berty: [ USD, RUB ]
              */
-        
+
             $system = "Ethereum_ERC20";
             $currency = "USDT";
 
@@ -671,11 +678,13 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     require_once __DIR__ . "/../src/PaykassaCurrency.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
 
+
     $pairs = [
         "BTC_USD",
         "USDT_ETH",
         "XRP_ADA",
     ];
+
 
     $res = \Paykassa\PaykassaCurrency::get_currency_pairs($pairs);
 
@@ -705,7 +714,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
     require_once __DIR__ . "/../src/PaykassaCurrency.php";
     //require_once __DIR__ . "/../vendor/autoload.php";
-    
+
     $res = \Paykassa\PaykassaCurrency::get_available_currencies();
 
     if ($res["error"]) {
