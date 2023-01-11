@@ -14,6 +14,8 @@
         ],
     ];
 
+    include_once __DIR__ . "/../config/config-example.php";
+
     $params = [
         "merchant_id" => $secret_keys_and_config["merchant_id"],
     ];

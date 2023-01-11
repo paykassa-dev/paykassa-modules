@@ -16,7 +16,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -136,7 +135,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -148,6 +146,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
             "test_mode" => false,
         ],
     ];
+
 
     /*
      * BitCoin: [ BTC ],
@@ -245,7 +244,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -257,6 +255,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
             "test_mode" => false,
         ],
     ];
+
 
 
     /*
@@ -339,7 +338,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -351,6 +349,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
             "test_mode" => false,
         ],
     ];
+
 
     /*
      * BitCoin: [ BTC ],
@@ -416,7 +415,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
 
     require_once __DIR__ . "/../src/PaykassaSCI.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -428,6 +426,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
             "test_mode" => false,
         ],
     ];
+
 
 
     /*
@@ -492,7 +491,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
 
     require_once __DIR__ . "/../src/PaykassaAPI.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -504,6 +502,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
             "test_mode" => false,
         ],
     ];
+
 
     /*
      * BitCoin: [ BTC ],
@@ -600,7 +599,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
 
     require_once __DIR__ . "/../src/PaykassaAPI.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $secret_keys_and_config = [
@@ -612,6 +610,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
             "test_mode" => false,
         ],
     ];
+
 
     $params = [
         "merchant_id" => $secret_keys_and_config["merchant_id"],
@@ -676,7 +675,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
     require_once __DIR__ . "/../src/PaykassaCurrency.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
 
     $pairs = [
@@ -713,7 +711,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```php
 <?php
     require_once __DIR__ . "/../src/PaykassaCurrency.php";
-    //require_once __DIR__ . "/../vendor/autoload.php";
 
     $res = \Paykassa\PaykassaCurrency::get_available_currencies();
 

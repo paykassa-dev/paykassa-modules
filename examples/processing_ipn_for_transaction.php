@@ -14,6 +14,8 @@
         ],
     ];
 
+    include_once __DIR__ . "/../config/config-example.php";
+
 
     /*
      * BitCoin: [ BTC ],
