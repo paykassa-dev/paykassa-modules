@@ -10,7 +10,7 @@
     ];
 
 
-    $res = \Paykassa\PaykassaCurrency::get_currency_pairs($pairs);
+    $res = \Paykassa\PaykassaCurrency::getCurrencyPairs($pairs);
 
     if ($res["error"]) {
         die($res["message"]);

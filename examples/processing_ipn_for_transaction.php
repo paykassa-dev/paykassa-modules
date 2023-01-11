@@ -43,7 +43,7 @@
 
     $private_hash = $_POST["private_hash"];
 
-    $res = $paykassa->check_transaction_ipn(
+    $res = $paykassa->checkTransactionIpn(
         $private_hash
     );
 

@@ -50,7 +50,7 @@
     );
 
 
-    $res = $paykassa->create_order(
+    $res = $paykassa->createOrder(
         $params["amount"],
         $params["system"],
         $params["currency"],

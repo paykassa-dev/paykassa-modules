@@ -28,7 +28,7 @@
     );
 
 
-    $res = $paykassa->get_merchant_balances(
+    $res = $paykassa->getMerchantBalances(
         $params["merchant_id"]
     );
     

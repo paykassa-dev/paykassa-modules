@@ -48,7 +48,7 @@
     );
 
 
-    $res = $paykassa->create_address(
+    $res = $paykassa->createAddress(
         $params["system"],
         $params["currency"],
         $params["order_id"],
@@ -93,7 +93,7 @@
 
 
             //Creating QR
-            $qr_request = $paykassa->get_qr_link($res['data'], $params["amount"]);
+            $qr_request = $paykassa->getQrLink($res['data'], $params["amount"]);
             if (!$qr_request["error"]) {
                 echo sprintf(
                     '<br><br>QR Code:<br><img alt="" src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=%s">',

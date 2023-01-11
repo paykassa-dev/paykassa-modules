@@ -12,6 +12,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 ## Usage
 ### Custom payment page
+
 ```php
 <?php
 
@@ -36,7 +37,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     );
 
     if ("GET" === $_SERVER['REQUEST_METHOD']) {
-        $list = \Paykassa\PaykassaSCI::get_payment_systems("crypto");
+        $list = \Paykassa\PaykassaSCI::getPaymentSystems("crypto");
 ?>
         <form action="" method="POST">
             <label>Select payment direction</label>
@@ -71,7 +72,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
         "comment" => "My comment",
     ];
 
-    $res = $paykassa->create_address(
+    $res = $paykassa->createAddress(
         $params["system"],
         $params["currency"],
         $params["order_id"],
@@ -116,7 +117,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 
             //Creating QR
-            $qr_request = $paykassa->get_qr_link($res['data'], $params["amount"]);
+            $qr_request = $paykassa->getQrLink($res['data'], $params["amount"]);
             if (!$qr_request["error"]) {
                 echo sprintf(
                     '<br><br>QR Code:<br><img alt="" src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=%s">',
@@ -131,6 +132,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 
 ### Get a payment address and a QR-code for him.
+
 ```php
 <?php
 
@@ -180,7 +182,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     );
 
 
-    $res = $paykassa->create_address(
+    $res = $paykassa->createAddress(
         $params["system"],
         $params["currency"],
         $params["order_id"],
@@ -225,7 +227,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 
             //Creating QR
-            $qr_request = $paykassa->get_qr_link($res['data'], $params["amount"]);
+            $qr_request = $paykassa->getQrLink($res['data'], $params["amount"]);
             if (!$qr_request["error"]) {
                 echo sprintf(
                     '<br><br>QR Code:<br><img alt="" src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=%s">',
@@ -240,6 +242,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 
 ### Check an IPN of a transaction.
+
 ```php
 <?php
 
@@ -284,7 +287,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
     $private_hash = $_POST["private_hash"];
 
-    $res = $paykassa->check_transaction_ipn(
+    $res = $paykassa->checkTransactionIpn(
         $private_hash
     );
 
@@ -334,6 +337,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```
 
 ### Get a payment link(create an order).
+
 ```php
 <?php
 
@@ -385,7 +389,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     );
 
 
-    $res = $paykassa->create_order(
+    $res = $paykassa->createOrder(
         $params["amount"],
         $params["system"],
         $params["currency"],
@@ -411,6 +415,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```
 
 ### Check an IPN of an order.
+
 ```php
 <?php
 
@@ -456,7 +461,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
     $private_hash = $_POST["private_hash"];
 
-    $res = $paykassa->check_order_ipn(
+    $res = $paykassa->checkOrderIpn(
         $private_hash
     );
 
@@ -487,6 +492,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```
 
 ### Send a money
+
 ```php
 <?php
 
@@ -543,7 +549,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     );
 
 
-    $res = $paykassa->send_money(
+    $res = $paykassa->sendMoney(
         $params["merchant_id"],
         $params["wallet"],
         $params["amount"],
@@ -624,7 +630,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     );
 
 
-    $res = $paykassa->get_merchant_balances(
+    $res = $paykassa->getMerchantBalances(
         $params["merchant_id"]
     );
     
@@ -684,7 +690,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
     ];
 
 
-    $res = \Paykassa\PaykassaCurrency::get_currency_pairs($pairs);
+    $res = \Paykassa\PaykassaCurrency::getCurrencyPairs($pairs);
 
     if ($res["error"]) {
         die($res["message"]);
@@ -712,7 +718,7 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 <?php
     require_once __DIR__ . "/../src/PaykassaCurrency.php";
 
-    $res = \Paykassa\PaykassaCurrency::get_available_currencies();
+    $res = \Paykassa\PaykassaCurrency::getAvailableCurrencies();
 
     if ($res["error"]) {
         die($res["message"]);

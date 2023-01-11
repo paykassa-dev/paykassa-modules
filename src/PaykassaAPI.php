@@ -258,7 +258,7 @@ class PaykassaAPI
     }
 
     private function
-    request_post(
+    requestPost(
         string $url,
         array  $data = []
     ): array
@@ -293,11 +293,11 @@ class PaykassaAPI
         array  $data = []
     ): array
     {
-        return $this->request_post($url, $data + $this->params);
+        return $this->requestPost($url, $data + $this->params);
     }
 
     final public function
-    get_system_settings_by_system_name(
+    getSystemSettingsBySystemName(
         string $system_name
     ): array
     {
@@ -325,7 +325,7 @@ class PaykassaAPI
     }
 
     final public function
-    send_money(
+    sendMoney(
         string $merchant_id,
         array  $wallet,
         string $amount,
@@ -338,7 +338,7 @@ class PaykassaAPI
 
         $currency = strtoupper($currency);
 
-        $res = $this->get_system_settings_by_system_name($system_name);
+        $res = $this->getSystemSettingsBySystemName($system_name);
         if ($res["error"]) {
             return $res;
         }
@@ -370,7 +370,7 @@ class PaykassaAPI
     }
 
     final public function
-    get_merchant_balances(
+    getMerchantBalances(
         string $merchant_id
     ): array
     {
@@ -381,7 +381,7 @@ class PaykassaAPI
     }
 
     final public static function
-    get_payment_systems(string $type=null): array {
+    getPaymentSystems(string $type=null): array {
         if (null === $type) {
             return self::$system_settings;
         }

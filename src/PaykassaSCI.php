@@ -258,7 +258,7 @@ class PaykassaSCI
     }
 
     private function
-    request_post(
+    requestPost(
         string $url,
         array $data = []
     ): array
@@ -293,11 +293,11 @@ class PaykassaSCI
         array $data = []
     ): array
     {
-        return $this->request_post($url, $data + $this->params);
+        return $this->requestPost($url, $data + $this->params);
     }
 
     final public function
-    get_system_settings_by_system_name(
+    getSystemSettingsBySystemName(
         string $system_name
     ): array
     {
@@ -325,7 +325,7 @@ class PaykassaSCI
     }
 
     final public function
-    get_qr_link(
+    getQrLink(
         array $response_data,
         string $amount=null
     ): array
@@ -340,7 +340,7 @@ class PaykassaSCI
         }
 
 
-        $res = $this->get_system_settings_by_system_name($system_name);
+        $res = $this->getSystemSettingsBySystemName($system_name);
         if ($res["error"]) {
             return $res;
         }
@@ -394,7 +394,7 @@ class PaykassaSCI
     }
 
     final public function
-    create_order(
+    createOrder(
         string $amount,
         string $system_name,
         string $currency,
@@ -405,7 +405,7 @@ class PaykassaSCI
 
         $currency = strtoupper($currency);
 
-        $res = $this->get_system_settings_by_system_name($system_name);
+        $res = $this->getSystemSettingsBySystemName($system_name);
         if ($res["error"]) {
             return $res;
         }
@@ -435,7 +435,7 @@ class PaykassaSCI
 
 
     final public function
-    create_address(
+    createAddress(
         string $system_name,
         string $currency,
         string $order_id,
@@ -445,7 +445,7 @@ class PaykassaSCI
 
         $currency = strtoupper($currency);
 
-        $res = $this->get_system_settings_by_system_name($system_name);
+        $res = $this->getSystemSettingsBySystemName($system_name);
         if ($res["error"]) {
             return $res;
         }
@@ -478,7 +478,7 @@ class PaykassaSCI
     }
 
     final public function
-    check_order_ipn(
+    checkOrderIpn(
         string $private_hash
     ): array
     {
@@ -489,7 +489,7 @@ class PaykassaSCI
     }
 
     final public function
-    check_transaction_ipn(
+    checkTransactionIpn(
         string $private_hash
     ): array
     {
@@ -500,7 +500,7 @@ class PaykassaSCI
     }
 
     final public static function
-    get_payment_systems(string $type=null): array {
+    getPaymentSystems(string $type=null): array {
         if (null === $type) {
             return self::$system_settings;
         }
