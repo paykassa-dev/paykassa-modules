@@ -14,6 +14,7 @@
         ],
     ];
 
+    include_once __DIR__ . "/../config/config-example.php";
 
     $paykassa = new \Paykassa\PaykassaSCI(
         $secret_keys_and_config["merchant_id"],
