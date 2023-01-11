@@ -12,7 +12,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 ## Usage
 ### Custom payment page
-
 ```php
 <?php
 
@@ -132,7 +131,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 
 ### Get a payment address and a QR-code for him.
-
 ```php
 <?php
 
@@ -242,7 +240,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 
 ### Check an IPN of a transaction.
-
 ```php
 <?php
 
@@ -337,7 +334,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```
 
 ### Get a payment link(create an order).
-
 ```php
 <?php
 
@@ -415,7 +411,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```
 
 ### Check an IPN of an order.
-
 ```php
 <?php
 
@@ -492,7 +487,6 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 ```
 
 ### Send a money
-
 ```php
 <?php
 
