@@ -3,7 +3,7 @@
 namespace Paykassa;
 class PaykassaAPI
 {
-    private $version = "0.5";
+    private $version = "0.8";
 
     private static $system_settings = [
         "bitcoin" => [
@@ -377,7 +377,29 @@ class PaykassaAPI
         return $this->query($this->url, [
                 "func" => "api_get_shop_balance",
             ] + [
-                "shop" => $merchant_id,]);
+                "shop_id" => $merchant_id,]);
+    }
+
+    final public function
+    getHistory(
+        array $filters = []
+    ): array
+    {
+        return $this->query($this->url, [
+                "func" => "api_get_history",
+            ]+ $filters);
+    }
+
+
+    final public function
+    getMerchantInfo(
+        string $merchant_id
+    ): array
+    {
+        return $this->query($this->url, [
+                "func" => "api_get_merchant_info",
+            ] + [
+                "shop_id" => $merchant_id,]);
     }
 
     final public static function
