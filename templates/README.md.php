@@ -57,6 +57,20 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
 
 ```
 
+### Get a merchant history
+
+```php
+<?php echo file_get_contents(__DIR__ . "/../examples/get_history.php"); ?>
+
+```
+
+### Get a merchant info
+
+```php
+<?php echo file_get_contents(__DIR__ . "/../examples/get_merchant_info.php"); ?>
+
+```
+
 
 
 ### Get cryptocurrency pair rates

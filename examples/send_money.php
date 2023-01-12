@@ -80,8 +80,8 @@
         $system = $res["data"]["system"];                           // the system of payment, which was made the payment, example: Bitcoin
         $currency = $res["data"]["currency"];                       // the payment currency, for example: BTC
         $number = $res["data"]["number"];                           // the address where you sent the funds
-        $comission_percent = $res["data"]["shop_comission_percent"];// the transfer fee percentage, example: 1.5
-        $comission_amount = $res["data"]["shop_comission_amount"];  // the transfer fee amount, example: 1.00
+        $commission_percent = $res["data"]["shop_commission_percent"];// the transfer fee percentage, example: 1.5
+        $commission_amount = $res["data"]["shop_commission_amount"];  // the transfer fee amount, example: 1.00
         $paid_commission = $res["data"]["paid_commission"];         // who paid for the Commission, for example: shop
     
     

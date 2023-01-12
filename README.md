@@ -568,8 +568,8 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
         $system = $res["data"]["system"];                           // the system of payment, which was made the payment, example: Bitcoin
         $currency = $res["data"]["currency"];                       // the payment currency, for example: BTC
         $number = $res["data"]["number"];                           // the address where you sent the funds
-        $comission_percent = $res["data"]["shop_comission_percent"];// the transfer fee percentage, example: 1.5
-        $comission_amount = $res["data"]["shop_comission_amount"];  // the transfer fee amount, example: 1.00
+        $commission_percent = $res["data"]["shop_commission_percent"];// the transfer fee percentage, example: 1.5
+        $commission_amount = $res["data"]["shop_commission_amount"];  // the transfer fee amount, example: 1.00
         $paid_commission = $res["data"]["paid_commission"];         // who paid for the Commission, for example: shop
     
     
@@ -665,6 +665,107 @@ A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Passwo
                 $data[$label] ?? "0.0",
                 $currency
             );
+    }
+```
+
+### Get a merchant history
+
+```php
+<?php
+
+    require_once __DIR__ . "/../src/PaykassaAPI.php";
+
+
+    $secret_keys_and_config = [
+        "merchant_id" => "Merchant ID",
+        "merchant_password" => "Merchant Password",
+        "api_id" => "API ID",
+        "api_password" => "API Password",
+        "config" => [
+            "test_mode" => false,
+        ],
+    ];
+
+
+    $params = [
+        "type" => "pay_in", //pay_in, pay_out
+        "shop_id" => $secret_keys_and_config["merchant_id"],
+        "page_num" => 0,
+        "status" => "yes", //yes - success, no - waiting or unsuccessful
+        "datetime_start" => "2022-12-08T19:58:00+0000", //ISO 8601
+        "datetime_end" => '2023-01-12T19:58:00+0000', //ISO 8601 - date("c", time())
+    ];
+
+
+    $paykassa = new \Paykassa\PaykassaAPI(
+        $secret_keys_and_config["api_id"],
+        $secret_keys_and_config["api_password"],
+        $secret_keys_and_config["config"]["test_mode"]
+    );
+
+
+    $res = $paykassa->getHistory(
+        $params
+    );
+    $index = 1;
+    do {
+        if ($res["error"]) {        // $res["error"] - true if the error
+            echo $res["message"];   // $res["message"] - the text of the error message
+            //actions in case of an error
+            break;
+        } else {
+            foreach ($res["data"]["list"] as $item) {
+                echo sprintf("<b>Index - %d, Page - %d Total page - %d</b><br>", $index, $params["page_num"] + 1, $res["data"]["page_count"]);
+                print_r($item);
+                echo "<br>";
+                $index += 1;
+            }
+        }
+        $params["page_num"] += 1;
+    } while ($params["page_num"] < $res["data"]["page_count"]);
+
+```
+
+### Get a merchant info
+
+```php
+<?php
+
+    require_once __DIR__ . "/../src/PaykassaAPI.php";
+
+
+    $secret_keys_and_config = [
+        "merchant_id" => "Merchant ID",
+        "merchant_password" => "Merchant Password",
+        "api_id" => "API ID",
+        "api_password" => "API Password",
+        "config" => [
+            "test_mode" => false,
+        ],
+    ];
+
+
+    $params = [
+        "merchant_id" => $secret_keys_and_config["merchant_id"],
+    ];
+
+
+    $paykassa = new \Paykassa\PaykassaAPI(
+        $secret_keys_and_config["api_id"],
+        $secret_keys_and_config["api_password"],
+        $secret_keys_and_config["config"]["test_mode"]
+    );
+
+
+    $res = $paykassa->getMerchantInfo(
+        $params["merchant_id"]
+    );
+    
+    if ($res["error"]) {        // $res["error"] - true if the error
+        echo $res["message"];   // $res["message"] - the text of the error message
+        //actions in case of an error
+    } else {
+        var_dump($res["data"]["info"]);
     }
 ```
 
