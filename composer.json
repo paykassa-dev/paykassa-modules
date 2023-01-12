@@ -1,14 +1,44 @@
 {
   "name": "paykassa-dev/paykassa-modules",
   "description": "Paykassa.pro PHP SCI/API Wrapper(Official)",
+  "homepage": "https://github.com/paykassa-dev/paykassa-modules/tree/v1.0.0",
   "type": "library",
   "license": "MIT",
+  "keywords": [
+    "Paykassa",
+    "Paykassa.pro",
+    "cryptocurrency",
+    "crypto",
+    "payment gateway",
+    "payment method",
+    "payment processor",
+    "merchant",
+    "tether",
+    "trc20",
+    "tron",
+    "bitpay",
+    "paypal",
+    "bitcoin",
+    "litecoin",
+    "ethereum",
+    "coinpayments",
+    "block.io",
+    "php",
+    "api",
+    "btc",
+    "currency"
+  ],
   "authors": [
     {
       "name": "Paykassa Dev",
-      "email": "dev@paykassa.pro"
+      "email": "dev@paykassa.pro",
+      "homepage": "https://paykassa.pro/en/",
+      "role": "Developer"
     }
   ],
+  "require": {
+    "php": ">=7.2.0"
+  },
   "autoload": {
     "psr-4": {
       "Paykassa\\": "src/"
