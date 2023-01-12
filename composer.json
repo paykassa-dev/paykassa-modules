@@ -1,5 +1,5 @@
 {
-  "name": "paykassa-dev/paykassa-modules",
+  "name": "paykassa-dev/paykassa",
   "description": "Paykassa.pro PHP SCI/API Wrapper(Official)",
   "homepage": "https://github.com/paykassa-dev/paykassa-modules/tree/v1.0.0",
   "type": "library",
