@@ -9,6 +9,13 @@ It's recommended to use a newer version of PHP. This library was written in a PH
 
 A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Password**. You can get the credentials at the pages: [Add merchant](https://paykassa.pro/en/user/shops/add_shop_new/), [Add API](https://paykassa.pro/en/user/api/add_api/).
 
+## Installation
+
+Package available on [Composer](https://packagist.org/packages/paykassa-dev/paykassa).
+
+If you're using Composer to manage dependencies, you can use
+
+$ composer require paykassa-dev/paykassa
 
 ## Usage
 ### Custom payment page
