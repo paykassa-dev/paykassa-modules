@@ -231,7 +231,7 @@ class PaykassaSCI
     }
 
 
-    final private function
+    private function
     ok(
         string $message,
         array $data = []
@@ -244,7 +244,7 @@ class PaykassaSCI
         ];
     }
 
-    final private function
+    private function
     err(
         string $message,
         array $data = []

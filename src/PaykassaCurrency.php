@@ -3,7 +3,7 @@
 namespace Paykassa;
 class PaykassaCurrency
 {
-    final private static function
+    private static function
     ok(
         string $message,
         array  $data = []
@@ -16,7 +16,7 @@ class PaykassaCurrency
         ];
     }
 
-    final private static function
+    private static function
     err(
         string $message,
         array  $data = []
