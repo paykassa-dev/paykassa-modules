@@ -15,7 +15,9 @@ Package available on [Composer](https://packagist.org/packages/paykassa-dev/payk
 
 If you're using Composer to manage dependencies, you can use
 
+```bash
 $ composer require paykassa-dev/paykassa
+```
 
 ## Usage
 ### Custom payment page
