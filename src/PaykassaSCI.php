@@ -78,18 +78,6 @@ class PaykassaSCI
                 "BCH",
             ],
         ],
-        "zcash" => [
-            "type" => "crypto",
-            "system_id" => 19,
-            "system" => "Zcash",
-            "tag" => false,
-            "tag_title" => "",
-            "qr_prefix" => "zcash:",
-            "display_name" => "Zcash",
-            "currency_list" => [
-                "ZEC",
-            ],
-        ],
         "ethereumclassic" => [
             "type" => "crypto",
             "system_id" => 21,
