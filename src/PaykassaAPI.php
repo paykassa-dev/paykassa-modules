@@ -5,6 +5,11 @@ class PaykassaAPI
 {
     private $version = "0.8";
 
+    private $url;
+    private $params;
+    private $curl;
+
+
     private static $system_settings = [
         "bitcoin" => [
             "type" => "crypto",
@@ -76,18 +81,6 @@ class PaykassaAPI
             "display_name" => "Bitcoin Cash",
             "currency_list" => [
                 "BCH",
-            ],
-        ],
-        "zcash" => [
-            "type" => "crypto",
-            "system_id" => 19,
-            "system" => "Zcash",
-            "tag" => false,
-            "tag_title" => "",
-            "qr_prefix" => "zcash:",
-            "display_name" => "Zcash",
-            "currency_list" => [
-                "ZEC",
             ],
         ],
         "ethereumclassic" => [
@@ -301,7 +294,7 @@ class PaykassaAPI
         string $system_name
     ): array
     {
-        $system_name = strtolower($system_name);
+        $system_name = mb_strtolower($system_name);
         if (isset(self::$system_settings[$system_name])) {
             return $this->ok("Ok", self::$system_settings[$system_name]);
         }
@@ -336,7 +329,7 @@ class PaykassaAPI
     ): array
     {
 
-        $currency = strtoupper($currency);
+        $currency = mb_strtoupper($currency);
 
         $res = $this->getSystemSettingsBySystemName($system_name);
         if ($res["error"]) {

@@ -5,7 +5,7 @@ Source code of the class files is in the ./src directory. The source code for th
 
 
 ## Requirements
-It's recommended to use a newer version of PHP. This library was written in a PHP v7.2.34 environment + php-curl modules.
+It's recommended to use a newer version of PHP. This library was written in a PHP v7.1+ environment + php-curl, php-json, php-mbstring modules.
 
 A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Password**. You can get the credentials at the pages: [Add merchant](https://paykassa.pro/en/user/shops/add_shop_new/), [Add API](https://paykassa.pro/en/user/api/add_api/).
 
