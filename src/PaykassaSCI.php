@@ -5,6 +5,10 @@ class PaykassaSCI
 {
     private $version = "0.4";
 
+    private $url;
+    private $params;
+    private $curl;
+
     private static $system_settings = [
         "bitcoin" => [
             "type" => "crypto",
@@ -289,7 +293,7 @@ class PaykassaSCI
         string $system_name
     ): array
     {
-        $system_name = strtolower($system_name);
+        $system_name = mb_strtolower($system_name);
         if (isset(self::$system_settings[$system_name])) {
             return $this->ok("Ok", self::$system_settings[$system_name]);
         }
@@ -319,7 +323,7 @@ class PaykassaSCI
     ): array
     {
         $system_name = $response_data["system"];
-        $currency = strtoupper($response_data["currency"]);
+        $currency = mb_strtoupper($response_data["currency"]);
         $wallet = $response_data["wallet"];
         $tag = $response_data["tag"];
 
@@ -391,7 +395,7 @@ class PaykassaSCI
     ): array
     {
 
-        $currency = strtoupper($currency);
+        $currency = mb_strtoupper($currency);
 
         $res = $this->getSystemSettingsBySystemName($system_name);
         if ($res["error"]) {
@@ -431,7 +435,7 @@ class PaykassaSCI
     ): array
     {
 
-        $currency = strtoupper($currency);
+        $currency = mb_strtoupper($currency);
 
         $res = $this->getSystemSettingsBySystemName($system_name);
         if ($res["error"]) {

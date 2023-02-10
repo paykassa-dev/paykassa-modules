@@ -59,7 +59,7 @@
             $system = "Ethereum_ERC20";
             $currency = "USDT";
 
-            $label = strtolower(sprintf("%s_%s", $system, $currency));
+            $label = mb_strtolower(sprintf("%s_%s", $system, $currency));
 
             $data = $res["data"];
 

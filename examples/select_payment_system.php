@@ -31,7 +31,7 @@
             <?php foreach ($list as $item) { ?>
                 <?php foreach ($item["currency_list"] as $currency) { ?>
                     <option value="<?php echo htmlspecialchars(
-                        sprintf("%s_%s", strtolower($item["system"]), strtolower($currency)),
+                        sprintf("%s_%s", mb_strtolower($item["system"]), mb_strtolower($currency)),
                         ENT_QUOTES, "UTF-8"); ?>">
                         <?php echo htmlspecialchars(sprintf("%s %s", $item["display_name"], $currency),
                             ENT_QUOTES, "UTF-8"); ?>

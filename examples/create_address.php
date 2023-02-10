@@ -72,7 +72,7 @@
 
             $display = sprintf("address %s", $address);
             if ($is_tag) {
-                $display = sprintf("address %s %s: %s", $address, ucfirst($tag_name), $tag);
+                $display = sprintf("address %s %s: %s", $address, mb_convert_case($tag_name, MB_CASE_TITLE), $tag);
             }
 
             if (null === $params["amount"]) {

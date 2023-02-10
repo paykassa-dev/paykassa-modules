@@ -5,7 +5,7 @@ Source code of the class files is in the ./src directory. The source code for th
 
 
 ## Requirements
-It's recommended to use a newer version of PHP. This library was written in a PHP v7.2.34 environment + php-curl modules.
+It's recommended to use a newer version of PHP. This library was written in a PHP v7.1+ environment + php-curl, php-json, php-mbstring modules.
 
 A Paykassa.pro account with **Merchant ID, Merchant Password, API ID, API Password**. You can get the credentials at the pages: [Add merchant](https://paykassa.pro/en/user/shops/add_shop_new/), [Add API](https://paykassa.pro/en/user/api/add_api/).
 
@@ -92,7 +92,7 @@ $ make stop
                 <?php foreach ($list as $item) { ?>
                     <?php foreach ($item["currency_list"] as $currency) { ?>
                         <option value="<?php echo htmlspecialchars(
-                            sprintf("%s_%s", strtolower($item["system"]), strtolower($currency)),
+                            sprintf("%s_%s", mb_strtolower($item["system"]), mb_strtolower($currency)),
                             ENT_QUOTES, "UTF-8"); ?>">
                             <?php echo htmlspecialchars(sprintf("%s %s", $item["display_name"], $currency),
                                 ENT_QUOTES, "UTF-8"); ?>
@@ -142,7 +142,7 @@ $ make stop
 
             $display = sprintf("address %s", $address);
             if ($is_tag) {
-                $display = sprintf("address %s %s: %s", $address, ucfirst($tag_name), $tag);
+                $display = sprintf("address %s %s: %s", $address, mb_convert_case($tag_name, MB_CASE_TITLE), $tag);
             }
 
             if (null === $params["amount"]) {
@@ -253,7 +253,7 @@ Follow the link [http://localhost/examples/custom_payment_page.php](http://local
 
             $display = sprintf("address %s", $address);
             if ($is_tag) {
-                $display = sprintf("address %s %s: %s", $address, ucfirst($tag_name), $tag);
+                $display = sprintf("address %s %s: %s", $address, mb_convert_case($tag_name, MB_CASE_TITLE), $tag);
             }
 
             if (null === $params["amount"]) {
@@ -716,7 +716,7 @@ Follow the link [http://localhost/examples/send_money.php](http://localhost/exam
             $system = "Ethereum_ERC20";
             $currency = "USDT";
 
-            $label = strtolower(sprintf("%s_%s", $system, $currency));
+            $label = mb_strtolower(sprintf("%s_%s", $system, $currency));
 
             $data = $res["data"];
 

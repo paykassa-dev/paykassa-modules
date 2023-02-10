@@ -4,8 +4,11 @@ composer_update:
 composer_update_arm:
 	docker run --rm -it -v "${PWD}:/app" arm64v8/composer update
 
-run: composer_update
-	docker run -d -p 127.0.0.1:80:80 --name my-apache-php-app -v "${PWD}":/var/www/html php:7.2-apache
+run: stop composer_update
+	docker run -d -p 127.0.0.1:80:80 --name my-apache-php-app -v "${PWD}":/var/www/html php:7.1-apache
+
+run_8.2: stop composer_update
+	docker run -d -p 127.0.0.1:80:80 --name my-apache-php-app -v "${PWD}":/var/www/html php:8.2-apache
 
 stop:
 	docker stop my-apache-php-app
