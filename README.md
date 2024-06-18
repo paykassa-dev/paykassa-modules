@@ -166,7 +166,7 @@ $ make stop
             $qr_request = $paykassa->getQrLink($res['data'], $params["amount"]);
             if (!$qr_request["error"]) {
                 echo sprintf(
-                    '<br><br>QR Code:<br><img alt="" src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=%s">',
+                    '<br><br>QR Code:<br><img alt="" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=%s">',
                     $qr_request["data"]["link"]
                 );
             }
@@ -277,7 +277,7 @@ Follow the link [http://localhost/examples/custom_payment_page.php](http://local
             $qr_request = $paykassa->getQrLink($res['data'], $params["amount"]);
             if (!$qr_request["error"]) {
                 echo sprintf(
-                    '<br><br>QR Code:<br><img alt="" src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=%s">',
+                    '<br><br>QR Code:<br><img alt="" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=%s">',
                     $qr_request["data"]["link"]
                 );
             }
