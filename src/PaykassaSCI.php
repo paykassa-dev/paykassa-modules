@@ -162,7 +162,7 @@ class PaykassaSCI
             "qr_prefix" => "",
             "display_name" => "BNB Smart Chain(BEP20)",
             "currency_list" => [
-                "USDT", "BUSD", "USDC", "ADA", "EOS", "BTC", "ETH", "DOGE", "SHIB",
+                "USDT", "USDC", "ADA", "EOS", "BTC", "ETH", "DOGE", "SHIB",
             ],
         ],
         "ethereum_erc20" => [
@@ -174,7 +174,7 @@ class PaykassaSCI
             "qr_prefix" => "ethereum:",
             "display_name" => "Ethereum(ERC20)",
             "currency_list" => [
-                "USDT", "BUSD", "USDC", "SHIB",
+                "USDT", "USDC", "SHIB",
             ],
         ],
         "berty" => [

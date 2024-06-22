@@ -23,15 +23,14 @@
      * DogeCoin: [ DOGE ],
      * Dash: [ DASH ],
      * BitcoinCash: [ BCH ],
-     * Zcash: [ ZEC ],
      * EthereumClassic: [ ETC ],
      * Ripple: [ XRP ],
      * TRON: [ TRX ],
      * Stellar: [ XLM ],
      * BinanceCoin: [ BNB ],
      * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, BUSD, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
+     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
+     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
      * Berty: [ USD, RUB ]
      */
     $params = [

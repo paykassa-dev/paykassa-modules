@@ -204,15 +204,14 @@ Follow the link [http://localhost/examples/custom_payment_page.php](http://local
      * DogeCoin: [ DOGE ],
      * Dash: [ DASH ],
      * BitcoinCash: [ BCH ],
-     * Zcash: [ ZEC ],
      * EthereumClassic: [ ETC ],
      * Ripple: [ XRP ],
      * TRON: [ TRX ],
      * Stellar: [ XLM ],
      * BinanceCoin: [ BNB ],
      * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, BUSD, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
+     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
+     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
      */
     $params = [
         "amount" => null,
@@ -316,15 +315,14 @@ Follow the link [http://localhost/examples/create_address.php](http://localhost/
      * DogeCoin: [ DOGE ],
      * Dash: [ DASH ],
      * BitcoinCash: [ BCH ],
-     * Zcash: [ ZEC ],
      * EthereumClassic: [ ETC ],
      * Ripple: [ XRP ],
      * TRON: [ TRX ],
      * Stellar: [ XLM ],
      * BinanceCoin: [ BNB ],
      * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, BUSD, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
+     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
+     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
      */
 
     $paykassa = new \Paykassa\PaykassaSCI(
@@ -412,15 +410,14 @@ Follow the link [http://localhost/examples/processing_ipn_for_transaction.php](h
      * DogeCoin: [ DOGE ],
      * Dash: [ DASH ],
      * BitcoinCash: [ BCH ],
-     * Zcash: [ ZEC ],
      * EthereumClassic: [ ETC ],
      * Ripple: [ XRP ],
      * TRON: [ TRX ],
      * Stellar: [ XLM ],
      * BinanceCoin: [ BNB ],
      * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, BUSD, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
+     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
+     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
      * Berty: [ USD, RUB ]
      */
     $params = [
@@ -493,15 +490,14 @@ Follow the link [http://localhost/examples/create_payment_link.php](http://local
      * DogeCoin: [ DOGE ],
      * Dash: [ DASH ],
      * BitcoinCash: [ BCH ],
-     * Zcash: [ ZEC ],
      * EthereumClassic: [ ETC ],
      * Ripple: [ XRP ],
      * TRON: [ TRX ],
      * Stellar: [ XLM ],
      * BinanceCoin: [ BNB ],
      * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, BUSD, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
+     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
+     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
      * Berty: [ USD, RUB ]
      */
 
@@ -571,15 +567,14 @@ Follow the link [http://localhost/examples/processing_ipn_for_order.php](http://
      * DogeCoin: [ DOGE ],
      * Dash: [ DASH ],
      * BitcoinCash: [ BCH ],
-     * Zcash: [ ZEC ],
      * EthereumClassic: [ ETC ],
      * Ripple: [ XRP ],
      * TRON: [ TRX ],
      * Stellar: [ XLM ],
      * BinanceCoin: [ BNB ],
      * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, BUSD, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
+     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
+     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
      * Berty: [ USD, RUB ]
      */
     $params = [
@@ -701,15 +696,14 @@ Follow the link [http://localhost/examples/send_money.php](http://localhost/exam
              * DogeCoin: [ DOGE ],
              * Dash: [ DASH ],
              * BitcoinCash: [ BCH ],
-             * Zcash: [ ZEC ],
              * EthereumClassic: [ ETC ],
              * Ripple: [ XRP ],
              * TRON: [ TRX ],
              * Stellar: [ XLM ],
              * BinanceCoin: [ BNB ],
              * TRON_TRC20: [ USDT ],
-             * BinanceSmartChain_BEP20: [ USDT, BUSD, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-             * Ethereum_ERC20: [ USDT, BUSD, USDC, SHIB ],
+             * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
+             * Ethereum_ERC20: [ USDT, USDC, SHIB ],
              * Berty: [ USD, RUB ]
              */
 
