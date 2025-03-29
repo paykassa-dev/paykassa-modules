@@ -82,18 +82,6 @@ class PaykassaSCI
                 "BCH",
             ],
         ],
-        "ethereumclassic" => [
-            "type" => "crypto",
-            "system_id" => 21,
-            "system" => "EthereumClassic",
-            "tag" => false,
-            "tag_title" => "",
-            "qr_prefix" => "ethereumclassic:",
-            "display_name" => "Ethereum Classic",
-            "currency_list" => [
-                "ETC",
-            ],
-        ],
         "ripple" => [
             "type" => "crypto",
             "system_id" => 22,
@@ -177,16 +165,16 @@ class PaykassaSCI
                 "USDT", "USDC", "SHIB",
             ],
         ],
-        "berty" => [
-            "type" => "emoney",
-            "system_id" => 7,
-            "system" => "Berty",
-            "tag" => false,
-            "tag_title" => "",
-            "qr_prefix" => "",
-            "display_name" => "BertyCash",
+        "ton" => [
+            "type" => "crypto",
+            "system_id" => 33,
+            "system" => "TON",
+            "tag" => true,
+            "tag_title" => "comment",
+            "qr_prefix" => "ton://transfer/",
+            "display_name" => "TON",
             "currency_list" => [
-                "USD", "RUB",
+                "TON", "USDT",
             ],
         ],
     ];
@@ -299,7 +287,7 @@ class PaykassaSCI
         }
         return $this->err(
             sprintf(
-                "System is not found. You can use next systems: %s",
+                "System is not found. You can use the following systems: %s",
                 implode(
                     ", ",
                     array_map(
@@ -346,7 +334,7 @@ class PaykassaSCI
         if (false === in_array($currency, $system_settings["currency_list"], true)) {
             return $this->err(
                 sprintf(
-                    "Currency(%s) is not found. You can use next currencies: %s",
+                    "Currency(%s) is not found. You can use the following currencies: %s",
                     $currency,
                     implode(", ", $system_settings["currency_list"])
                 )
@@ -360,19 +348,38 @@ class PaykassaSCI
             return $this->err("Wrong params");
         }
         if (true === $system_settings["tag"]) {
-            $query_params =
-                $query_params + [
-                    "tag" => $tag,
-                    "memo" => $tag,
-                    "dt" => $tag,
-                ];
+            if ($system_settings["system"] === "TON") {
+                $query_params =
+                    $query_params + [
+                        "text" => $tag,
+                    ];
+                if ($currency === "USDT") {
+                    $query_params =
+                        $query_params + [
+                            "jetton" => "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
+                        ];
+                }
+            } else {
+                $query_params =
+                    $query_params + [
+                        "tag" => $tag,
+                        "memo" => $tag,
+                        "dt" => $tag,
+                    ];
+            }
         }
 
         if (null !== $amount) {
-            $query_params = $query_params + [
-               "amount" => $amount,
-               "value" => $amount,
-            ];
+            if ($system_settings["system"] === "TON") {
+                $query_params = $query_params + [
+                    "amount" => (int)($currency === "TON" ? $amount * 1e9 : $amount * 1e6),
+                ];
+            } else {
+                $query_params = $query_params + [
+                    "amount" => $amount,
+                    "value" => $amount,
+                ];
+            }
         }
 
         $qr_link = sprintf("%s%s%s%s",
@@ -381,7 +388,7 @@ class PaykassaSCI
 
 
         return $this->ok("OK", [
-            "link" => $qr_link,
+            "link" => urlencode($qr_link),
         ]);
     }
 
@@ -407,7 +414,7 @@ class PaykassaSCI
         if (false === in_array($currency, $system_settings["currency_list"], true)) {
             return $this->err(
                 sprintf(
-                    "Currency(%s) is not found. You can use next currencies: %s",
+                    "Currency(%s) is not found. You can use the following currencies: %s",
                     $currency,
                     implode(", ", $system_settings["currency_list"])
                 )
@@ -451,7 +458,7 @@ class PaykassaSCI
         if (false === in_array($currency, $system_settings["currency_list"], true)) {
             return $this->err(
                 sprintf(
-                    "Currency(%s) is not found. You can use next currencies: %s",
+                    "Currency(%s) is not found. You can use the following currencies: %s",
                     $currency,
                     implode(", ", $system_settings["currency_list"])
                 )

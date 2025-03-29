@@ -18,7 +18,7 @@
     include_once __DIR__ . "/../config/config-example.php";
 
 
-    //$list = PaykassaSCI::get_payment_systems();
+    //$list = \Paykassa\PaykassaSCI::getPaymentSystems();
     $list = \Paykassa\PaykassaAPI::getPaymentSystems();
 
     ?>

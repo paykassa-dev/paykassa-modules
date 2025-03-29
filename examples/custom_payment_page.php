@@ -87,8 +87,9 @@
 
             if (null === $params["amount"]) {
                 echo sprintf(
-                    "Send a money to the %s %s.",
+                    "Send money to the %s %s %s.",
                     $system,
+                    $currency,
                     htmlspecialchars($display,ENT_QUOTES, "UTF-8")
                 );
             } else {

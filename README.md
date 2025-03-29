@@ -147,8 +147,9 @@ $ make stop
 
             if (null === $params["amount"]) {
                 echo sprintf(
-                    "Send a money to the %s %s.",
+                    "Send money to the %s %s %s.",
                     $system,
+                    $currency,
                     htmlspecialchars($display,ENT_QUOTES, "UTF-8")
                 );
             } else {
@@ -174,12 +175,13 @@ $ make stop
             echo sprintf('Test link: <a target="_blank" href="%s">Open link</a>', $res["data"]["url"]);
         }
     }
+
 ```
 
 **Example:**
 Follow the link [http://localhost/examples/custom_payment_page.php](http://localhost/examples/custom_payment_page.php)
 
-### Get a payment address and a QR-code for him
+### Get a deposit address and a QR-code
 ```php
 <?php
 
@@ -197,21 +199,21 @@ Follow the link [http://localhost/examples/custom_payment_page.php](http://local
     ];
 
 
-    /*
-     * BitCoin: [ BTC ],
-     * Ethereum: [ ETH ],
-     * LiteCoin: [ LTC ],
-     * DogeCoin: [ DOGE ],
-     * Dash: [ DASH ],
-     * BitcoinCash: [ BCH ],
-     * EthereumClassic: [ ETC ],
-     * Ripple: [ XRP ],
-     * TRON: [ TRX ],
-     * Stellar: [ XLM ],
-     * BinanceCoin: [ BNB ],
-     * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
+     /*
+     * BitCoin [ BTC ]
+     * Ethereum [ ETH ]
+     * LiteCoin [ LTC ]
+     * DogeCoin [ DOGE ]
+     * Dash [ DASH ]
+     * BitcoinCash [ BCH ]
+     * Ripple [ XRP ]
+     * TRON [ TRX ]
+     * Stellar [ XLM ]
+     * BinanceCoin [ BNB ]
+     * TRON_TRC20 [ USDT ]
+     * BinanceSmartChain_BEP20 [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ]
+     * Ethereum_ERC20 [ USDT, USDC, SHIB ]
+     * TON [ TON, USDT ]
      */
     $params = [
         "amount" => null,
@@ -257,8 +259,9 @@ Follow the link [http://localhost/examples/custom_payment_page.php](http://local
 
             if (null === $params["amount"]) {
                 echo sprintf(
-                    "Send a money to the %s %s.",
+                    "Send money to the %s %s %s.",
                     $system,
+                    $currency,
                     htmlspecialchars($display,ENT_QUOTES, "UTF-8")
                 );
             } else {
@@ -284,6 +287,7 @@ Follow the link [http://localhost/examples/custom_payment_page.php](http://local
             echo sprintf('Test link: <a target="_blank" href="%s">Open link</a>', $res["data"]["url"]);
         }
     }
+
 ```
 
 **Example:**
@@ -308,21 +312,21 @@ Follow the link [http://localhost/examples/create_address.php](http://localhost/
 
 
 
-    /*
-     * BitCoin: [ BTC ],
-     * Ethereum: [ ETH ],
-     * LiteCoin: [ LTC ],
-     * DogeCoin: [ DOGE ],
-     * Dash: [ DASH ],
-     * BitcoinCash: [ BCH ],
-     * EthereumClassic: [ ETC ],
-     * Ripple: [ XRP ],
-     * TRON: [ TRX ],
-     * Stellar: [ XLM ],
-     * BinanceCoin: [ BNB ],
-     * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
+     /*
+     * BitCoin [ BTC ]
+     * Ethereum [ ETH ]
+     * LiteCoin [ LTC ]
+     * DogeCoin [ DOGE ]
+     * Dash [ DASH ]
+     * BitcoinCash [ BCH ]
+     * Ripple [ XRP ]
+     * TRON [ TRX ]
+     * Stellar [ XLM ]
+     * BinanceCoin [ BNB ]
+     * TRON_TRC20 [ USDT ]
+     * BinanceSmartChain_BEP20 [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ]
+     * Ethereum_ERC20 [ USDT, USDC, SHIB ]
+     * TON [ TON, USDT ]
      */
 
     $paykassa = new \Paykassa\PaykassaSCI(
@@ -403,22 +407,21 @@ Follow the link [http://localhost/examples/processing_ipn_for_transaction.php](h
     ];
 
 
-    /*
-     * BitCoin: [ BTC ],
-     * Ethereum: [ ETH ],
-     * LiteCoin: [ LTC ],
-     * DogeCoin: [ DOGE ],
-     * Dash: [ DASH ],
-     * BitcoinCash: [ BCH ],
-     * EthereumClassic: [ ETC ],
-     * Ripple: [ XRP ],
-     * TRON: [ TRX ],
-     * Stellar: [ XLM ],
-     * BinanceCoin: [ BNB ],
-     * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
-     * Berty: [ USD, RUB ]
+     /*
+     * BitCoin [ BTC ]
+     * Ethereum [ ETH ]
+     * LiteCoin [ LTC ]
+     * DogeCoin [ DOGE ]
+     * Dash [ DASH ]
+     * BitcoinCash [ BCH ]
+     * Ripple [ XRP ]
+     * TRON [ TRX ]
+     * Stellar [ XLM ]
+     * BinanceCoin [ BNB ]
+     * TRON_TRC20 [ USDT ]
+     * BinanceSmartChain_BEP20 [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ]
+     * Ethereum_ERC20 [ USDT, USDC, SHIB ]
+     * TON [ TON, USDT ]
      */
     $params = [
         "amount" => "100.00",
@@ -483,22 +486,21 @@ Follow the link [http://localhost/examples/create_payment_link.php](http://local
 
 
 
-    /*
-     * BitCoin: [ BTC ],
-     * Ethereum: [ ETH ],
-     * LiteCoin: [ LTC ],
-     * DogeCoin: [ DOGE ],
-     * Dash: [ DASH ],
-     * BitcoinCash: [ BCH ],
-     * EthereumClassic: [ ETC ],
-     * Ripple: [ XRP ],
-     * TRON: [ TRX ],
-     * Stellar: [ XLM ],
-     * BinanceCoin: [ BNB ],
-     * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
-     * Berty: [ USD, RUB ]
+     /*
+     * BitCoin [ BTC ]
+     * Ethereum [ ETH ]
+     * LiteCoin [ LTC ]
+     * DogeCoin [ DOGE ]
+     * Dash [ DASH ]
+     * BitcoinCash [ BCH ]
+     * Ripple [ XRP ]
+     * TRON [ TRX ]
+     * Stellar [ XLM ]
+     * BinanceCoin [ BNB ]
+     * TRON_TRC20 [ USDT ]
+     * BinanceSmartChain_BEP20 [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ]
+     * Ethereum_ERC20 [ USDT, USDC, SHIB ]
+     * TON [ TON, USDT ]
      */
 
     $paykassa = new \Paykassa\PaykassaSCI(
@@ -542,7 +544,7 @@ Follow the link [http://localhost/examples/create_payment_link.php](http://local
 **Example:**
 Follow the link [http://localhost/examples/processing_ipn_for_order.php](http://localhost/examples/processing_ipn_for_order.php)
 
-### Send a money
+### Send money
 ```php
 <?php
 
@@ -560,22 +562,21 @@ Follow the link [http://localhost/examples/processing_ipn_for_order.php](http://
     ];
 
 
-    /*
-     * BitCoin: [ BTC ],
-     * Ethereum: [ ETH ],
-     * LiteCoin: [ LTC ],
-     * DogeCoin: [ DOGE ],
-     * Dash: [ DASH ],
-     * BitcoinCash: [ BCH ],
-     * EthereumClassic: [ ETC ],
-     * Ripple: [ XRP ],
-     * TRON: [ TRX ],
-     * Stellar: [ XLM ],
-     * BinanceCoin: [ BNB ],
-     * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
-     * Berty: [ USD, RUB ]
+     /*
+     * BitCoin [ BTC ]
+     * Ethereum [ ETH ]
+     * LiteCoin [ LTC ]
+     * DogeCoin [ DOGE ]
+     * Dash [ DASH ]
+     * BitcoinCash [ BCH ]
+     * Ripple [ XRP ]
+     * TRON [ TRX ]
+     * Stellar [ XLM ]
+     * BinanceCoin [ BNB ]
+     * TRON_TRC20 [ USDT ]
+     * BinanceSmartChain_BEP20 [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ]
+     * Ethereum_ERC20 [ USDT, USDC, SHIB ]
+     * TON [ TON, USDT ]
      */
     $params = [
         "merchant_id" => $secret_keys_and_config["merchant_id"],
@@ -683,29 +684,29 @@ Follow the link [http://localhost/examples/send_money.php](http://localhost/exam
     $res = $paykassa->getMerchantBalances(
         $params["merchant_id"]
     );
+
+
+     /*
+     * BitCoin [ BTC ]
+     * Ethereum [ ETH ]
+     * LiteCoin [ LTC ]
+     * DogeCoin [ DOGE ]
+     * Dash [ DASH ]
+     * BitcoinCash [ BCH ]
+     * Ripple [ XRP ]
+     * TRON [ TRX ]
+     * Stellar [ XLM ]
+     * BinanceCoin [ BNB ]
+     * TRON_TRC20 [ USDT ]
+     * BinanceSmartChain_BEP20 [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ]
+     * Ethereum_ERC20 [ USDT, USDC, SHIB ]
+     * TON [ TON, USDT ]
+     */
     
     if ($res["error"]) {        // $res["error"] - true if the error
         echo $res["message"];   // $res["message"] - the text of the error message
         //actions in case of an error
     } else {
-
-            /*
-             * BitCoin: [ BTC ],
-             * Ethereum: [ ETH ],
-             * LiteCoin: [ LTC ],
-             * DogeCoin: [ DOGE ],
-             * Dash: [ DASH ],
-             * BitcoinCash: [ BCH ],
-             * EthereumClassic: [ ETC ],
-             * Ripple: [ XRP ],
-             * TRON: [ TRX ],
-             * Stellar: [ XLM ],
-             * BinanceCoin: [ BNB ],
-             * TRON_TRC20: [ USDT ],
-             * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-             * Ethereum_ERC20: [ USDT, USDC, SHIB ],
-             * Berty: [ USD, RUB ]
-             */
 
             $system = "Ethereum_ERC20";
             $currency = "USDT";
@@ -884,6 +885,71 @@ Follow the link [http://localhost/examples/get_currency_rates.php](http://localh
 
 **Example:**
 Follow the link [http://localhost/examples/get_available_currencies.php](http://localhost/examples/get_available_currencies.php)
+
+### Get a txid of a payment
+```php
+<?php
+
+    require_once __DIR__ . "/../src/PaykassaAPI.php";
+
+
+    $secret_keys_and_config = [
+        "merchant_id" => "Merchant ID",
+        "merchant_password" => "Merchant Password",
+        "api_id" => "API ID",
+        "api_password" => "API Password",
+        "config" => [
+            "test_mode" => false,
+        ],
+    ];
+
+
+    $params = [
+        "merchant_id" => $secret_keys_and_config["merchant_id"],
+    ];
+
+
+    $paykassa = new \Paykassa\PaykassaAPI(
+        $secret_keys_and_config["api_id"],
+        $secret_keys_and_config["api_password"],
+        $secret_keys_and_config["config"]["test_mode"]
+    );
+
+    $invice_ids = [
+        "37411867",
+        "37411866",
+        "37411863",
+    ];
+
+    $res = $paykassa->getTxIdsByInvoiceIds(
+        $params["merchant_id"],
+        $invice_ids
+    );
+    
+    if ($res["error"]) {        // $res["error"] - true if the error
+        echo $res["message"];   // $res["message"] - the text of the error message
+        //actions in case of an error
+    } else {
+        ?><ul><?php
+        foreach ($invice_ids as $invoice_id) {
+            //IMPORTANT!!!!
+            if (!isset($res["data"][$invoice_id])) {
+                continue;
+            }
+            $txids = $res["data"][$invoice_id];
+            ?><li><?php
+            echo sprintf("Invoice ID: %s<br>", $invoice_id);
+            foreach ($txids as $txid) {
+                echo sprintf("TXID: %s<br>", $txid);
+            }
+            ?></li><?php
+        }
+        ?></ul><?php
+    }
+```
+
+**Example:**
+Follow the link [http://localhost/examples/get_payment_txid.php](http://localhost/examples/get_payment_txid.php)
 
 
 ## Contributing

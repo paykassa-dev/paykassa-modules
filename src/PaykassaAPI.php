@@ -83,18 +83,6 @@ class PaykassaAPI
                 "BCH",
             ],
         ],
-        "ethereumclassic" => [
-            "type" => "crypto",
-            "system_id" => 21,
-            "system" => "EthereumClassic",
-            "tag" => false,
-            "tag_title" => "",
-            "qr_prefix" => "ethereumclassic:",
-            "display_name" => "Ethereum Classic",
-            "currency_list" => [
-                "ETC",
-            ],
-        ],
         "ripple" => [
             "type" => "crypto",
             "system_id" => 22,
@@ -178,16 +166,16 @@ class PaykassaAPI
                 "USDT", "USDC", "SHIB",
             ],
         ],
-        "berty" => [
-            "type" => "emoney",
-            "system_id" => 7,
-            "system" => "Berty",
-            "tag" => false,
-            "tag_title" => "",
-            "qr_prefix" => "",
-            "display_name" => "BertyCash",
+        "ton" => [
+            "type" => "crypto",
+            "system_id" => 33,
+            "system" => "TON",
+            "tag" => true,
+            "tag_title" => "comment",
+            "qr_prefix" => "ton://transfer/",
+            "display_name" => "TON",
             "currency_list" => [
-                "USD", "RUB",
+                "TON", "USDT",
             ],
         ],
     ];
@@ -300,7 +288,7 @@ class PaykassaAPI
         }
         return $this->err(
             sprintf(
-                "System is not found. You can use next systems: %s",
+                "System is not found. You can use the following systems: %s",
                 implode(
                     ", ",
                     array_map(
@@ -341,7 +329,7 @@ class PaykassaAPI
         if (false === in_array($currency, $system_settings["currency_list"], true)) {
             return $this->err(
                 sprintf(
-                    "Currency(%s) is not found. You can use next currencies: %s",
+                    "Currency(%s) is not found. You can use the following currencies: %s",
                     $currency,
                     implode(", ", $system_settings["currency_list"])
                 )
@@ -403,5 +391,23 @@ class PaykassaAPI
         return array_filter(self::$system_settings, function ($item) use ($type) {
             return ($item["type"] === $type);
         });
+    }
+
+    final public function
+    getTxIdsByInvoiceIds(
+        string $merchant_id,
+        array $invoice_ids
+    ): array
+    {
+        return $this->query($this->url, [
+                "func" => "api_get_shop_txids",
+            ] + [
+                "shop_id" => $merchant_id,
+                "invoices" => $invoice_ids,
+                ]);
+    }
+
+    final static function getSystemSettings(): array {
+        return self::$system_settings;
     }
 }
