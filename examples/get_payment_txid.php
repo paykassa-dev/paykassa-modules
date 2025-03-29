@@ -27,30 +27,34 @@
         $secret_keys_and_config["config"]["test_mode"]
     );
 
+    $invice_ids = [
+        "37411867",
+        "37411866",
+        "37411863",
+    ];
 
-    $res = $paykassa->getMerchantBalances(
-        $params["merchant_id"]
+    $res = $paykassa->getTxIdsByInvoiceIds(
+        $params["merchant_id"],
+        $invice_ids
     );
-
-
-/* ### SYSTEMS_INFO ### */
     
     if ($res["error"]) {        // $res["error"] - true if the error
         echo $res["message"];   // $res["message"] - the text of the error message
         //actions in case of an error
     } else {
-
-            $system = "Ethereum_ERC20";
-            $currency = "USDT";
-
-            $label = mb_strtolower(sprintf("%s_%s", $system, $currency));
-
-            $data = $res["data"];
-
-            echo sprintf(
-                "Balance for %s %s %s",
-                $system,
-                $data[$label] ?? "0.0",
-                $currency
-            );
+        ?><ul><?php
+        foreach ($invice_ids as $invoice_id) {
+            //IMPORTANT!!!!
+            if (!isset($res["data"][$invoice_id])) {
+                continue;
+            }
+            $txids = $res["data"][$invoice_id];
+            ?><li><?php
+            echo sprintf("Invoice ID: %s<br>", $invoice_id);
+            foreach ($txids as $txid) {
+                echo sprintf("TXID: %s<br>", $txid);
+            }
+            ?></li><?php
+        }
+        ?></ul><?php
     }

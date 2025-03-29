@@ -16,23 +16,7 @@
 
     include_once __DIR__ . "/../config/config-example.php";
 
-    /*
-     * BitCoin: [ BTC ],
-     * Ethereum: [ ETH ],
-     * LiteCoin: [ LTC ],
-     * DogeCoin: [ DOGE ],
-     * Dash: [ DASH ],
-     * BitcoinCash: [ BCH ],
-     * EthereumClassic: [ ETC ],
-     * Ripple: [ XRP ],
-     * TRON: [ TRX ],
-     * Stellar: [ XLM ],
-     * BinanceCoin: [ BNB ],
-     * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
-     * Berty: [ USD, RUB ]
-     */
+/* ### SYSTEMS_INFO ### */
     $params = [
         "amount" => "100.00",
         "system" => "BitCoin",

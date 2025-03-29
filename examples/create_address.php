@@ -16,22 +16,7 @@
 
     include_once __DIR__ . "/../config/config-example.php";
 
-    /*
-     * BitCoin: [ BTC ],
-     * Ethereum: [ ETH ],
-     * LiteCoin: [ LTC ],
-     * DogeCoin: [ DOGE ],
-     * Dash: [ DASH ],
-     * BitcoinCash: [ BCH ],
-     * EthereumClassic: [ ETC ],
-     * Ripple: [ XRP ],
-     * TRON: [ TRX ],
-     * Stellar: [ XLM ],
-     * BinanceCoin: [ BNB ],
-     * TRON_TRC20: [ USDT ],
-     * BinanceSmartChain_BEP20: [ USDT, USDC, ADA, EOS, BTC, ETH, DOGE, SHIB ],
-     * Ethereum_ERC20: [ USDT, USDC, SHIB ],
-     */
+/* ### SYSTEMS_INFO ### */
     $params = [
         "amount" => null,
         "system" => "TRON_TRC20",
@@ -76,8 +61,9 @@
 
             if (null === $params["amount"]) {
                 echo sprintf(
-                    "Send a money to the %s %s.",
+                    "Send money to the %s %s %s.",
                     $system,
+                    $currency,
                     htmlspecialchars($display,ENT_QUOTES, "UTF-8")
                 );
             } else {

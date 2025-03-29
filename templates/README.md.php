@@ -65,7 +65,7 @@ $ make stop
         ],
         [
             "file" => "create_address.php",
-            "title" => "Get a payment address and a QR-code for him",
+            "title" => "Get a deposit address and a QR-code",
         ],
         [
             "file" => "processing_ipn_for_transaction.php",
@@ -81,7 +81,7 @@ $ make stop
         ],
         [
             "file" => "send_money.php",
-            "title" => "Send a money",
+            "title" => "Send money",
         ],
         [
             "file" => "get_merchant_balance.php",
@@ -102,6 +102,10 @@ $ make stop
         [
             "file" => "get_available_currencies.php",
             "title" => "Get available currencies",
+        ],
+        [
+            "file" => "get_payment_txid.php",
+            "title" => "Get a txid of a payment",
         ],
     ];
 
